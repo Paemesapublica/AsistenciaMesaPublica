@@ -15,7 +15,6 @@
       --pae-green-btn: #1f6b45;
       --pae-green-hover: #154e32;
       --pae-bg: #f8fafc;
-      --pae-badge: #eab308;
     }
 
     body {
@@ -26,7 +25,6 @@
       padding: 0;
     }
 
-    /* Barra superior */
     .top-nav {
       background-color: #0f3627;
       color: #cbd5e1;
@@ -34,13 +32,11 @@
       padding: 10px 24px;
     }
 
-    /* Hero header verde */
     .hero-section {
       background: linear-gradient(180deg, #164835 0%, #1b5e43 100%);
       color: #ffffff;
       padding: 48px 20px 100px 20px;
       text-align: center;
-      position: relative;
     }
 
     .badge-pae {
@@ -73,7 +69,6 @@
       line-height: 1.5;
     }
 
-    /* Tarjeta del formulario */
     .form-container {
       margin-top: -65px;
       margin-bottom: 60px;
@@ -100,7 +95,6 @@
       margin-bottom: 24px;
     }
 
-    /* Cuadro informativo amarillo */
     .callout-notice {
       background-color: #fefce8;
       border: 1px solid #fef08a;
@@ -123,7 +117,6 @@
       line-height: 1.45;
     }
 
-    /* Inputs */
     .form-label-custom {
       font-size: 0.72rem;
       font-weight: 700;
@@ -140,7 +133,6 @@
       font-size: 0.9rem;
       color: #334155;
       background-color: #ffffff;
-      transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
     }
 
     .form-control-custom::placeholder {
@@ -154,7 +146,6 @@
       outline: none;
     }
 
-    /* Botón */
     .btn-submit-pae {
       background-color: var(--pae-green-btn);
       border: none;
@@ -171,6 +162,20 @@
       color: #ffffff;
     }
 
+    .check-circle {
+      width: 72px;
+      height: 72px;
+      background-color: #d1fae5;
+      color: #065f46;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 18px auto;
+      font-size: 2.2rem;
+      font-weight: 700;
+    }
+
     .footer-text {
       text-align: center;
       font-size: 0.8rem;
@@ -181,13 +186,11 @@
 </head>
 <body>
 
-  <!-- Barra de navegación -->
   <div class="top-nav d-flex justify-content-between align-items-center">
     <span>PAE 2026 — Sistema de Asistencia</span>
     <span class="small opacity-75">Gobernación de Antioquia</span>
   </div>
 
-  <!-- Encabezado Hero -->
   <section class="hero-section">
     <div class="badge-pae">Segunda Mesa Pública 2026</div>
     <h1 class="hero-title">Asistencia a Segunda Mesa<br>Pública PAE</h1>
@@ -196,16 +199,14 @@
     </p>
   </section>
 
-  <!-- Tarjeta con Formulario -->
   <main class="container form-container">
     <div class="row justify-content-center">
       <div class="col-12 col-lg-8">
-        <div class="form-card">
+        <div class="form-card" id="cardContenedor">
           
           <h2 class="form-header-title">Formulario de Asistencia</h2>
           <p class="form-header-desc">Complete la información solicitada para participar en la Segunda Mesa Pública 2026.</p>
 
-          <!-- Aviso destacado -->
           <div class="callout-notice">
             <div class="callout-title">Participa y haz parte de este encuentro.</div>
             <p class="callout-text">
@@ -214,7 +215,6 @@
           </div>
 
           <form id="attendanceForm">
-            <!-- Nombres y Apellidos -->
             <div class="row g-3 mb-3">
               <div class="col-md-6">
                 <label for="nombres" class="form-label form-label-custom">Nombres</label>
@@ -226,7 +226,6 @@
               </div>
             </div>
 
-            <!-- Cédula y Correo -->
             <div class="row g-3 mb-3">
               <div class="col-md-6">
                 <label for="cedula" class="form-label form-label-custom">Número de Cédula</label>
@@ -238,7 +237,6 @@
               </div>
             </div>
 
-            <!-- Teléfono y Rol / Cargo -->
             <div class="row g-3 mb-3">
               <div class="col-md-6">
                 <label for="telefono" class="form-label form-label-custom">Número de Teléfono</label>
@@ -250,7 +248,6 @@
               </div>
             </div>
 
-            <!-- Municipio -->
             <div class="mb-4">
               <label for="municipio" class="form-label form-label-custom">Municipio</label>
               <select class="form-select form-select-custom" id="municipio" name="municipio" required>
@@ -383,7 +380,6 @@
               </select>
             </div>
 
-            <!-- Botón de Envío -->
             <button type="submit" class="btn btn-submit-pae" id="btnSubmit">
               Enviar Asistencia
             </button>
@@ -401,12 +397,13 @@
   </footer>
 
   <script>
-    // URL desplegada de Google Apps Script
+    // URL desplegada de tu Google Apps Script
     const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwa-xb8iHxuRyjQG7nOaYxTOdNqb9PJy4HqBiRS2Sd4HZGZ8xGM8se2OogxO8stcpxgqQ/exec";
 
     const form = document.getElementById('attendanceForm');
     const btnSubmit = document.getElementById('btnSubmit');
     const alerta = document.getElementById('alerta');
+    const cardContenedor = document.getElementById('cardContenedor');
 
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
@@ -428,8 +425,19 @@
           body: JSON.stringify(payload)
         });
 
-        // Redirección opcional a gracias.html si la creaste, o mensaje visual directo:
-        window.location.href = "gracias.html";
+        // Reemplaza la tarjeta con el agradecimiento sin cambiar de URL
+        cardContenedor.innerHTML = `
+          <div class="text-center py-5">
+            <div class="check-circle">✓</div>
+            <h3 class="fw-bold text-dark mb-2">¡Gracias por su asistencia!</h3>
+            <p class="text-secondary mb-4" style="max-width: 480px; margin: 0 auto 24px auto;">
+              Su registro para la <strong>Segunda Mesa Pública PAE 2026</strong> ha sido recibido y guardado correctamente en la base de datos.
+            </p>
+            <button class="btn btn-submit-pae" onclick="window.location.reload()">
+              Registrar otra persona
+            </button>
+          </div>
+        `;
 
       } catch (err) {
         alerta.className = "alert alert-danger mt-4";
