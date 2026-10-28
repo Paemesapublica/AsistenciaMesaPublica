@@ -3,245 +3,442 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Registro de Asistencia - Mesa Pública</title>
+  <title>Inscripción - Segunda Mesa Pública PAE</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
   <style>
-    body {
-      background-color: #f4f6f9;
+    :root {
+      --pae-green-header: #174d38;
+      --pae-green-btn: #1f6b45;
+      --pae-green-hover: #154e32;
+      --pae-bg: #f8fafc;
+      --pae-badge: #eab308;
     }
-    .card {
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: var(--pae-bg);
+      color: #1e293b;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* Barra superior */
+    .top-nav {
+      background-color: #0f3627;
+      color: #cbd5e1;
+      font-size: 0.85rem;
+      padding: 10px 24px;
+    }
+
+    /* Hero header verde */
+    .hero-section {
+      background: linear-gradient(180deg, #164835 0%, #1b5e43 100%);
+      color: #ffffff;
+      padding: 48px 20px 100px 20px;
+      text-align: center;
+      position: relative;
+    }
+
+    .badge-pae {
+      background-color: rgba(234, 179, 8, 0.2);
+      border: 1px solid rgba(234, 179, 8, 0.5);
+      color: #fef08a;
+      font-size: 0.72rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      font-weight: 700;
+      padding: 6px 16px;
+      border-radius: 50px;
+      display: inline-block;
+      margin-bottom: 16px;
+    }
+
+    .hero-title {
+      font-size: 2.1rem;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      margin-bottom: 12px;
+    }
+
+    .hero-subtitle {
+      font-size: 0.95rem;
+      color: #d1fae5;
+      max-width: 650px;
+      margin: 0 auto;
+      font-weight: 400;
+      line-height: 1.5;
+    }
+
+    /* Tarjeta del formulario */
+    .form-container {
+      margin-top: -65px;
+      margin-bottom: 60px;
+    }
+
+    .form-card {
+      background: #ffffff;
+      border-radius: 18px;
+      border: 1px solid #e2e8f0;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+      padding: 36px 40px;
+    }
+
+    .form-header-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #0f172a;
+      margin-bottom: 4px;
+    }
+
+    .form-header-desc {
+      font-size: 0.875rem;
+      color: #64748b;
+      margin-bottom: 24px;
+    }
+
+    /* Cuadro informativo amarillo */
+    .callout-notice {
+      background-color: #fefce8;
+      border: 1px solid #fef08a;
+      border-radius: 10px;
+      padding: 14px 18px;
+      margin-bottom: 28px;
+    }
+
+    .callout-title {
+      font-weight: 700;
+      font-size: 0.85rem;
+      color: #854d0e;
+      margin-bottom: 3px;
+    }
+
+    .callout-text {
+      font-size: 0.8rem;
+      color: #713f12;
+      margin: 0;
+      line-height: 1.45;
+    }
+
+    /* Inputs */
+    .form-label-custom {
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+      color: #475569;
+      margin-bottom: 6px;
+    }
+
+    .form-control-custom, .form-select-custom {
+      border: 1px solid #cbd5e1;
+      border-radius: 8px;
+      padding: 10px 14px;
+      font-size: 0.9rem;
+      color: #334155;
+      background-color: #ffffff;
+      transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    }
+
+    .form-control-custom::placeholder {
+      color: #94a3b8;
+      font-size: 0.85rem;
+    }
+
+    .form-control-custom:focus, .form-select-custom:focus {
+      border-color: var(--pae-green-btn);
+      box-shadow: 0 0 0 3px rgba(31, 107, 69, 0.15);
+      outline: none;
+    }
+
+    /* Botón */
+    .btn-submit-pae {
+      background-color: var(--pae-green-btn);
       border: none;
-      border-radius: 12px;
-      box-shadow: 0 4px 14px rgba(0,0,0,0.08);
+      color: #ffffff;
+      font-weight: 600;
+      font-size: 0.92rem;
+      padding: 11px 26px;
+      border-radius: 8px;
+      transition: background-color 0.2s ease;
+    }
+
+    .btn-submit-pae:hover {
+      background-color: var(--pae-green-hover);
+      color: #ffffff;
+    }
+
+    .footer-text {
+      text-align: center;
+      font-size: 0.8rem;
+      color: #94a3b8;
+      padding-bottom: 30px;
     }
   </style>
 </head>
 <body>
 
-<div class="container py-5">
-  <div class="row justify-content-center">
-    <div class="col-12 col-md-8 col-lg-6">
-      <div class="card p-4">
-        <h4 class="text-center fw-bold text-primary mb-3">Registro de Asistencia</h4>
-        <p class="text-muted text-center small mb-4">Mesa Pública del Programa de Alimentación Escolar (PAE)</p>
+  <!-- Barra de navegación -->
+  <div class="top-nav d-flex justify-content-between align-items-center">
+    <span>PAE 2026 — Sistema de Inscripción</span>
+    <span class="small opacity-75">Gobernación de Antioquia</span>
+  </div>
 
-        <form id="attendanceForm">
-          <div class="row g-2 mb-3">
-            <div class="col-md-6">
-              <label for="nombres" class="form-label">Nombres *</label>
-              <input type="text" class="form-control" id="nombres" name="nombres" required>
+  <!-- Encabezado Hero -->
+  <section class="hero-section">
+    <div class="badge-pae">Segunda Mesa Pública 2026</div>
+    <h1 class="hero-title">Inscripción a Segunda Mesa<br>Pública PAE</h1>
+    <p class="hero-subtitle">
+      Un espacio de participación para fortalecer el diálogo, la transparencia y el seguimiento al Programa de Alimentación Escolar — PAE.
+    </p>
+  </section>
+
+  <!-- Tarjeta con Formulario -->
+  <main class="container form-container">
+    <div class="row justify-content-center">
+      <div class="col-12 col-lg-8">
+        <div class="form-card">
+          
+          <h2 class="form-header-title">Formulario de inscripción</h2>
+          <p class="form-header-desc">Complete la información solicitada para participar en la Segunda Mesa Pública 2026.</p>
+
+          <!-- Aviso destacado -->
+          <div class="callout-notice">
+            <div class="callout-title">Participa y haz parte de este encuentro.</div>
+            <p class="callout-text">
+              La mesa pública del PAE promueve la participación de la comunidad educativa y fortalece el compromiso con la alimentación escolar de niños, niñas y adolescentes.
+            </p>
+          </div>
+
+          <form id="attendanceForm">
+            <!-- Nombres y Apellidos -->
+            <div class="row g-3 mb-3">
+              <div class="col-md-6">
+                <label for="nombres" class="form-label form-label-custom">Nombres</label>
+                <input type="text" class="form-control form-control-custom" id="nombres" name="nombres" placeholder="Ingrese sus nombres" required>
+              </div>
+              <div class="col-md-6">
+                <label for="apellidos" class="form-label form-label-custom">Apellidos</label>
+                <input type="text" class="form-control form-control-custom" id="apellidos" name="apellidos" placeholder="Ingrese sus apellidos" required>
+              </div>
             </div>
-            <div class="col-md-6">
-              <label for="apellidos" class="form-label">Apellidos *</label>
-              <input type="text" class="form-control" id="apellidos" name="apellidos" required>
+
+            <!-- Cédula y Correo -->
+            <div class="row g-3 mb-3">
+              <div class="col-md-6">
+                <label for="cedula" class="form-label form-label-custom">Número de Cédula</label>
+                <input type="number" class="form-control form-control-custom" id="cedula" name="cedula" placeholder="Ingrese su número de cédula" required>
+              </div>
+              <div class="col-md-6">
+                <label for="correo" class="form-label form-label-custom">Correo Electrónico</label>
+                <input type="email" class="form-control form-control-custom" id="correo" name="correo" placeholder="ejemplo@correo.com" required>
+              </div>
             </div>
-          </div>
 
-          <div class="mb-3">
-            <label for="cedula" class="form-label">Cédula de Ciudadanía *</label>
-            <input type="number" class="form-control" id="cedula" name="cedula" required>
-          </div>
+            <!-- Teléfono y Rol / Cargo -->
+            <div class="row g-3 mb-3">
+              <div class="col-md-6">
+                <label for="telefono" class="form-label form-label-custom">Número de Teléfono</label>
+                <input type="tel" class="form-control form-control-custom" id="telefono" name="telefono" placeholder="Ingrese su número de teléfono" required>
+              </div>
+              <div class="col-md-6">
+                <label for="rol_cargo" class="form-label form-label-custom">Rol / Cargo</label>
+                <input type="text" class="form-control form-control-custom" id="rol_cargo" name="rol_cargo" placeholder="Ej: Rector, Docente, Padre de familia..." required>
+              </div>
+            </div>
 
-          <div class="mb-3">
-            <label for="correo" class="form-label">Correo Electrónico *</label>
-            <input type="email" class="form-control" id="correo" name="correo" required>
-          </div>
+            <!-- Municipio -->
+            <div class="mb-4">
+              <label for="municipio" class="form-label form-label-custom">Municipio</label>
+              <select class="form-select form-select-custom" id="municipio" name="municipio" required>
+                <option value="" selected disabled>Seleccione su municipio</option>
+                <option value="Abejorral">Abejorral</option>
+                <option value="Abriaquí">Abriaquí</option>
+                <option value="Alejandría">Alejandría</option>
+                <option value="Amagá">Amagá</option>
+                <option value="Amalfi">Amalfi</option>
+                <option value="Andes">Andes</option>
+                <option value="Angelópolis">Angelópolis</option>
+                <option value="Angostura">Angostura</option>
+                <option value="Anorí">Anorí</option>
+                <option value="Anzá">Anzá</option>
+                <option value="Apartadó">Apartadó</option>
+                <option value="Arboletes">Arboletes</option>
+                <option value="Argelia">Argelia</option>
+                <option value="Armenia">Armenia</option>
+                <option value="Barbosa">Barbosa</option>
+                <option value="Bello">Bello</option>
+                <option value="Belmira">Belmira</option>
+                <option value="Betania">Betania</option>
+                <option value="Betulia">Betulia</option>
+                <option value="Briceño">Briceño</option>
+                <option value="Buriticá">Buriticá</option>
+                <option value="Cáceres">Cáceres</option>
+                <option value="Caicedo">Caicedo</option>
+                <option value="Caldas">Caldas</option>
+                <option value="Campamento">Campamento</option>
+                <option value="Cañasgordas">Cañasgordas</option>
+                <option value="Caracolí">Caracolí</option>
+                <option value="Caramanta">Caramanta</option>
+                <option value="Carepa">Carepa</option>
+                <option value="Carolina del Príncipe">Carolina del Príncipe</option>
+                <option value="Caucasia">Caucasia</option>
+                <option value="Chigorodó">Chigorodó</option>
+                <option value="Cisneros">Cisneros</option>
+                <option value="Ciudad Bolívar">Ciudad Bolívar</option>
+                <option value="Cocorná">Cocorná</option>
+                <option value="Concepción">Concepción</option>
+                <option value="Concordia">Concordia</option>
+                <option value="Copacabana">Copacabana</option>
+                <option value="Dabeiba">Dabeiba</option>
+                <option value="Donmatías">Donmatías</option>
+                <option value="Ebéjico">Ebéjico</option>
+                <option value="El Bagre">El Bagre</option>
+                <option value="El Carmen de Viboral">El Carmen de Viboral</option>
+                <option value="El Peñol">El Peñol</option>
+                <option value="El Retiro">El Retiro</option>
+                <option value="El Santuario">El Santuario</option>
+                <option value="Entrerríos">Entrerríos</option>
+                <option value="Envigado">Envigado</option>
+                <option value="Fredonia">Fredonia</option>
+                <option value="Frontino">Frontino</option>
+                <option value="Giraldo">Giraldo</option>
+                <option value="Girardota">Girardota</option>
+                <option value="Gómez Plata">Gómez Plata</option>
+                <option value="Granada">Granada</option>
+                <option value="Guadalupe">Guadalupe</option>
+                <option value="Guarne">Guarne</option>
+                <option value="Guatapé">Guatapé</option>
+                <option value="Heliconia">Heliconia</option>
+                <option value="Hispania">Hispania</option>
+                <option value="Itagüí">Itagüí</option>
+                <option value="Ituango">Ituango</option>
+                <option value="Jardín">Jardín</option>
+                <option value="Jericó">Jericó</option>
+                <option value="La Ceja">La Ceja</option>
+                <option value="La Estrella">La Estrella</option>
+                <option value="La Pintada">La Pintada</option>
+                <option value="La Unión">La Unión</option>
+                <option value="Liborina">Liborina</option>
+                <option value="Maceo">Maceo</option>
+                <option value="Marinilla">Marinilla</option>
+                <option value="Medellín">Medellín</option>
+                <option value="Montebello">Montebello</option>
+                <option value="Murindó">Murindó</option>
+                <option value="Mutatá">Mutatá</option>
+                <option value="Nariño">Nariño</option>
+                <option value="Nechí">Nechí</option>
+                <option value="Necoclí">Necoclí</option>
+                <option value="Olaya">Olaya</option>
+                <option value="Peque">Peque</option>
+                <option value="Pueblorrico">Pueblorrico</option>
+                <option value="Puerto Berrío">Puerto Berrío</option>
+                <option value="Puerto Nare">Puerto Nare</option>
+                <option value="Puerto Triunfo">Puerto Triunfo</option>
+                <option value="Remedios">Remedios</option>
+                <option value="Rionegro">Rionegro</option>
+                <option value="Sabanalarga">Sabanalarga</option>
+                <option value="Sabaneta">Sabaneta</option>
+                <option value="Salgar">Salgar</option>
+                <option value="San Andrés de Cuerquia">San Andrés de Cuerquia</option>
+                <option value="San Carlos">San Carlos</option>
+                <option value="San Francisco">San Francisco</option>
+                <option value="San Jerónimo">San Jerónimo</option>
+                <option value="San José de la Montaña">San José de la Montaña</option>
+                <option value="San Juan de Urabá">San Juan de Urabá</option>
+                <option value="San Luis">San Luis</option>
+                <option value="San Pedro de los Milagros">San Pedro de los Milagros</option>
+                <option value="San Pedro de Urabá">San Pedro de Urabá</option>
+                <option value="San Rafael">San Rafael</option>
+                <option value="San Roque">San Roque</option>
+                <option value="San Vicente Ferrer">San Vicente Ferrer</option>
+                <option value="Santa Bárbara">Santa Bárbara</option>
+                <option value="Santa Fe de Antioquia">Santa Fe de Antioquia</option>
+                <option value="Santa Rosa de Osos">Santa Rosa de Osos</option>
+                <option value="Santo Domingo">Santo Domingo</option>
+                <option value="Segovia">Segovia</option>
+                <option value="Sonsón">Sonsón</option>
+                <option value="Sopetrán">Sopetrán</option>
+                <option value="Támesis">Támesis</option>
+                <option value="Tarazá">Tarazá</option>
+                <option value="Tarso">Tarso</option>
+                <option value="Titiribí">Titiribí</option>
+                <option value="Toledo">Toledo</option>
+                <option value="Turbo">Turbo</option>
+                <option value="Uramita">Uramita</option>
+                <option value="Urrao">Urrao</option>
+                <option value="Valdivia">Valdivia</option>
+                <option value="Valparaíso">Valparaíso</option>
+                <option value="Vegachí">Vegachí</option>
+                <option value="Venecia">Venecia</option>
+                <option value="Vigía del Fuerte">Vigía del Fuerte</option>
+                <option value="Yalí">Yalí</option>
+                <option value="Yarumal">Yarumal</option>
+                <option value="Yolombó">Yolombó</option>
+                <option value="Yondó">Yondó</option>
+                <option value="Zaragoza">Zaragoza</option>
+              </select>
+            </div>
 
-          <div class="mb-3">
-            <label for="telefono" class="form-label">Teléfono / Celular *</label>
-            <input type="tel" class="form-control" id="telefono" name="telefono" required>
-          </div>
+            <!-- Botón de Envío -->
+            <button type="submit" class="btn btn-submit-pae" id="btnSubmit">
+              Enviar inscripción
+            </button>
+          </form>
 
-          <div class="mb-3">
-            <label for="rol_cargo" class="form-label">Rol / Cargo *</label>
-            <input type="text" class="form-control" id="rol_cargo" name="rol_cargo" placeholder="Ej. Rector, Coordinador, Veedor, Operador..." required>
-          </div>
+          <div id="alerta" class="alert mt-4 d-none" role="alert"></div>
 
-          <div class="mb-4">
-            <label for="municipio" class="form-label">Municipio *</label>
-            <select class="form-select" id="municipio" name="municipio" required>
-              <option value="" selected disabled>Seleccione un municipio...</option>
-              <option value="Abejorral">Abejorral</option>
-              <option value="Abriaquí">Abriaquí</option>
-              <option value="Alejandría">Alejandría</option>
-              <option value="Amagá">Amagá</option>
-              <option value="Amalfi">Amalfi</option>
-              <option value="Andes">Andes</option>
-              <option value="Angelópolis">Angelópolis</option>
-              <option value="Angostura">Angostura</option>
-              <option value="Anorí">Anorí</option>
-              <option value="Anzá">Anzá</option>
-              <option value="Apartadó">Apartadó</option>
-              <option value="Arboletes">Arboletes</option>
-              <option value="Argelia">Argelia</option>
-              <option value="Armenia">Armenia</option>
-              <option value="Barbosa">Barbosa</option>
-              <option value="Bello">Bello</option>
-              <option value="Belmira">Belmira</option>
-              <option value="Betania">Betania</option>
-              <option value="Betulia">Betulia</option>
-              <option value="Briceño">Briceño</option>
-              <option value="Buriticá">Buriticá</option>
-              <option value="Cáceres">Cáceres</option>
-              <option value="Caicedo">Caicedo</option>
-              <option value="Caldas">Caldas</option>
-              <option value="Campamento">Campamento</option>
-              <option value="Cañasgordas">Cañasgordas</option>
-              <option value="Caracolí">Caracolí</option>
-              <option value="Caramanta">Caramanta</option>
-              <option value="Carepa">Carepa</option>
-              <option value="Carolina del Príncipe">Carolina del Príncipe</option>
-              <option value="Caucasia">Caucasia</option>
-              <option value="Chigorodó">Chigorodó</option>
-              <option value="Cisneros">Cisneros</option>
-              <option value="Ciudad Bolívar">Ciudad Bolívar</option>
-              <option value="Cocorná">Cocorná</option>
-              <option value="Concepción">Concepción</option>
-              <option value="Concordia">Concordia</option>
-              <option value="Copacabana">Copacabana</option>
-              <option value="Dabeiba">Dabeiba</option>
-              <option value="Donmatías">Donmatías</option>
-              <option value="Ebéjico">Ebéjico</option>
-              <option value="El Bagre">El Bagre</option>
-              <option value="El Carmen de Viboral">El Carmen de Viboral</option>
-              <option value="El Peñol">El Peñol</option>
-              <option value="El Retiro">El Retiro</option>
-              <option value="El Santuario">El Santuario</option>
-              <option value="Entrerríos">Entrerríos</option>
-              <option value="Envigado">Envigado</option>
-              <option value="Fredonia">Fredonia</option>
-              <option value="Frontino">Frontino</option>
-              <option value="Giraldo">Giraldo</option>
-              <option value="Girardota">Girardota</option>
-              <option value="Gómez Plata">Gómez Plata</option>
-              <option value="Granada">Granada</option>
-              <option value="Guadalupe">Guadalupe</option>
-              <option value="Guarne">Guarne</option>
-              <option value="Guatapé">Guatapé</option>
-              <option value="Heliconia">Heliconia</option>
-              <option value="Hispania">Hispania</option>
-              <option value="Itagüí">Itagüí</option>
-              <option value="Ituango">Ituango</option>
-              <option value="Jardín">Jardín</option>
-              <option value="Jericó">Jericó</option>
-              <option value="La Ceja">La Ceja</option>
-              <option value="La Estrella">La Estrella</option>
-              <option value="La Pintada">La Pintada</option>
-              <option value="La Unión">La Unión</option>
-              <option value="Liborina">Liborina</option>
-              <option value="Maceo">Maceo</option>
-              <option value="Marinilla">Marinilla</option>
-              <option value="Medellín">Medellín</option>
-              <option value="Montebello">Montebello</option>
-              <option value="Murindó">Murindó</option>
-              <option value="Mutatá">Mutatá</option>
-              <option value="Nariño">Nariño</option>
-              <option value="Nechí">Nechí</option>
-              <option value="Necoclí">Necoclí</option>
-              <option value="Olaya">Olaya</option>
-              <option value="Peque">Peque</option>
-              <option value="Pueblorrico">Pueblorrico</option>
-              <option value="Puerto Berrío">Puerto Berrío</option>
-              <option value="Puerto Nare">Puerto Nare</option>
-              <option value="Puerto Triunfo">Puerto Triunfo</option>
-              <option value="Remedios">Remedios</option>
-              <option value="Rionegro">Rionegro</option>
-              <option value="Sabanalarga">Sabanalarga</option>
-              <option value="Sabaneta">Sabaneta</option>
-              <option value="Salgar">Salgar</option>
-              <option value="San Andrés de Cuerquia">San Andrés de Cuerquia</option>
-              <option value="San Carlos">San Carlos</option>
-              <option value="San Francisco">San Francisco</option>
-              <option value="San Jerónimo">San Jerónimo</option>
-              <option value="San José de la Montaña">San José de la Montaña</option>
-              <option value="San Juan de Urabá">San Juan de Urabá</option>
-              <option value="San Luis">San Luis</option>
-              <option value="San Pedro de los Milagros">San Pedro de los Milagros</option>
-              <option value="San Pedro de Urabá">San Pedro de Urabá</option>
-              <option value="San Rafael">San Rafael</option>
-              <option value="San Roque">San Roque</option>
-              <option value="San Vicente Ferrer">San Vicente Ferrer</option>
-              <option value="Santa Bárbara">Santa Bárbara</option>
-              <option value="Santa Fe de Antioquia">Santa Fe de Antioquia</option>
-              <option value="Santa Rosa de Osos">Santa Rosa de Osos</option>
-              <option value="Santo Domingo">Santo Domingo</option>
-              <option value="Segovia">Segovia</option>
-              <option value="Sonsón">Sonsón</option>
-              <option value="Sopetrán">Sopetrán</option>
-              <option value="Támesis">Támesis</option>
-              <option value="Tarazá">Tarazá</option>
-              <option value="Tarso">Tarso</option>
-              <option value="Titiribí">Titiribí</option>
-              <option value="Toledo">Toledo</option>
-              <option value="Turbo">Turbo</option>
-              <option value="Uramita">Uramita</option>
-              <option value="Urrao">Urrao</option>
-              <option value="Valdivia">Valdivia</option>
-              <option value="Valparaíso">Valparaíso</option>
-              <option value="Vegachí">Vegachí</option>
-              <option value="Venecia">Venecia</option>
-              <option value="Vigía del Fuerte">Vigía del Fuerte</option>
-              <option value="Yalí">Yalí</option>
-              <option value="Yarumal">Yarumal</option>
-              <option value="Yolombó">Yolombó</option>
-              <option value="Yondó">Yondó</option>
-              <option value="Zaragoza">Zaragoza</option>
-            </select>
-          </div>
-
-          <button type="submit" class="btn btn-primary w-100 py-2 fw-semibold" id="btnSubmit">
-            Registrar Asistencia
-          </button>
-        </form>
-
-        <div id="alerta" class="alert mt-3 d-none" role="alert"></div>
+        </div>
       </div>
     </div>
-  </div>
-</div>
+  </main>
 
-<script>
-  const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwa-xb8iHxuRyjQG7nOaYxTOdNqb9PJy4HqBiRS2Sd4HZGZ8xGM8se2OogxO8stcpxgqQ/exec";
+  <footer class="footer-text">
+    © 2026 Programa de Alimentación Escolar — Sitio de inscripción.
+  </footer>
 
-  const form = document.getElementById('attendanceForm');
-  const btnSubmit = document.getElementById('btnSubmit');
-  const alerta = document.getElementById('alerta');
+  <script>
+    // URL desplegada de Google Apps Script
+    const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwa-xb8iHxuRyjQG7nOaYxTOdNqb9PJy4HqBiRS2Sd4HZGZ8xGM8se2OogxO8stcpxgqQ/exec";
 
-  form.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    
-    btnSubmit.disabled = true;
-    btnSubmit.innerText = "Guardando...";
-    alerta.classList.add('d-none');
+    const form = document.getElementById('attendanceForm');
+    const btnSubmit = document.getElementById('btnSubmit');
+    const alerta = document.getElementById('alerta');
 
-    const formData = new FormData(form);
-    const payload = Object.fromEntries(formData.entries());
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
 
-    try {
-      await fetch(SCRIPT_URL, {
-        method: 'POST',
-        mode: 'no-cors',
-        headers: {
-          'Content-Type': 'text/plain;charset=utf-8'
-        },
-        body: JSON.stringify(payload)
-      });
+      btnSubmit.disabled = true;
+      btnSubmit.innerText = "Enviando registro...";
+      alerta.classList.add('d-none');
 
-      alerta.className = "alert alert-success mt-3";
-      alerta.textContent = "¡Registro exitoso! Su asistencia ha sido guardada.";
-      alerta.classList.remove('d-none');
-      form.reset();
+      const formData = new FormData(form);
+      const payload = Object.fromEntries(formData.entries());
 
-    } catch (err) {
-      alerta.className = "alert alert-danger mt-3";
-      alerta.textContent = "Ocurrió un error al procesar el registro. Intente nuevamente.";
-      alerta.classList.remove('d-none');
-    } finally {
-      btnSubmit.disabled = false;
-      btnSubmit.innerText = "Registrar Asistencia";
-    }
-  });
-</script>
+      try {
+        await fetch(SCRIPT_URL, {
+          method: 'POST',
+          mode: 'no-cors',
+          headers: {
+            'Content-Type': 'text/plain;charset=utf-8'
+          },
+          body: JSON.stringify(payload)
+        });
 
+        // Redirección opcional a gracias.html si la creaste, o mensaje visual directo:
+        window.location.href = "gracias.html";
+
+      } catch (err) {
+        alerta.className = "alert alert-danger mt-4";
+        alerta.textContent = "Hubo un error al procesar la inscripción. Intente de nuevo.";
+        alerta.classList.remove('d-none');
+        btnSubmit.disabled = false;
+        btnSubmit.innerText = "Enviar inscripción";
+      }
+    });
+  </script>
 </body>
 </html>
