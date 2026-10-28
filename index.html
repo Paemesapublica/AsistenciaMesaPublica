@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Inscripción - Segunda Mesa Pública PAE</title>
+  <title>Asistencia - Segunda Mesa Pública PAE</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -183,14 +183,14 @@
 
   <!-- Barra de navegación -->
   <div class="top-nav d-flex justify-content-between align-items-center">
-    <span>PAE 2026 — Sistema de Inscripción</span>
+    <span>PAE 2026 — Sistema de Asistencia</span>
     <span class="small opacity-75">Gobernación de Antioquia</span>
   </div>
 
   <!-- Encabezado Hero -->
   <section class="hero-section">
     <div class="badge-pae">Segunda Mesa Pública 2026</div>
-    <h1 class="hero-title">Inscripción a Segunda Mesa<br>Pública PAE</h1>
+    <h1 class="hero-title">Asistencia a Segunda Mesa<br>Pública PAE</h1>
     <p class="hero-subtitle">
       Un espacio de participación para fortalecer el diálogo, la transparencia y el seguimiento al Programa de Alimentación Escolar — PAE.
     </p>
@@ -202,7 +202,7 @@
       <div class="col-12 col-lg-8">
         <div class="form-card">
           
-          <h2 class="form-header-title">Formulario de inscripción</h2>
+          <h2 class="form-header-title">Formulario de Asistencia</h2>
           <p class="form-header-desc">Complete la información solicitada para participar en la Segunda Mesa Pública 2026.</p>
 
           <!-- Aviso destacado -->
@@ -385,7 +385,7 @@
 
             <!-- Botón de Envío -->
             <button type="submit" class="btn btn-submit-pae" id="btnSubmit">
-              Enviar inscripción
+              Enviar Asistencia
             </button>
           </form>
 
@@ -397,7 +397,7 @@
   </main>
 
   <footer class="footer-text">
-    © 2026 Programa de Alimentación Escolar — Sitio de inscripción.
+    © 2026 Programa de Alimentación Escolar — Sitio de Asistencia.
   </footer>
 
   <script>
@@ -433,10 +433,10 @@
 
       } catch (err) {
         alerta.className = "alert alert-danger mt-4";
-        alerta.textContent = "Hubo un error al procesar la inscripción. Intente de nuevo.";
+        alerta.textContent = "Hubo un error al procesar la Asistencia. Intente de nuevo.";
         alerta.classList.remove('d-none');
         btnSubmit.disabled = false;
-        btnSubmit.innerText = "Enviar inscripción";
+        btnSubmit.innerText = "Enviar Asistencia";
       }
     });
   </script>
